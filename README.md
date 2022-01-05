@@ -1,2 +1,2 @@
-# BaekJoon 알고리즘
+# BaekJoon & Programmers
 - Java 알고리즘 공부
