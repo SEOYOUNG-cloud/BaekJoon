@@ -7,8 +7,7 @@ for test_case in range(1, int(input()) + 1):
         student = list(map(int, input().split()))
         students.append(round(student[0] * 0.35 + student[1] * 0.45 + student[2] * 0.20, 2))
 
-        if i == k:
-            K_score = round(student[0] * 0.35 + student[1] * 0.45 + student[2] * 0.20, 2)
+    K_score = students[k - 1]
 
     students.sort(reverse=True)
     for i in range(n):
