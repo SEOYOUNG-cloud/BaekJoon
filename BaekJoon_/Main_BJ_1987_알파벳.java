@@ -1,5 +1,4 @@
 package Baek;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,7 +11,7 @@ public class Main_Bj_1987_알파벳_박서영 {
 	static char map[][];
 	static int dx[] = {1,-1,0,0};
 	static int dy[] = {0,0,1,-1};
-	static int R,C,answer=1, count=0;
+	static int R,C,answer=1;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
@@ -28,16 +27,14 @@ public class Main_Bj_1987_알파벳_박서영 {
 				map[i][j] = str.charAt(j);
 		}
 		
-//		System.out.println(Arrays.deepToString(map));
-		dfs(0,0);
+		dfs(0,0,1);
 		System.out.println(answer);
 		
 	}
-	private static void dfs(int x, int y) {
-		count += 1;
+	private static void dfs(int x, int y, int count) {
+		if(answer < count) answer=count;
 		
 		isVisited[map[x][y] - 65] = true;
-//		System.out.println(Arrays.toString(isVisited));
 		
 		for(int d=0; d<4; d++) {
 			int nx = x + dx[d];
@@ -47,12 +44,9 @@ public class Main_Bj_1987_알파벳_박서영 {
 			if(isVisited[map[nx][ny] - 65]) continue;
 			
 			isVisited[map[nx][ny] - 65] = true;
-			dfs(nx, ny);
+			dfs(nx, ny, count+1);
 			isVisited[map[nx][ny] - 65] = false;
-			count -= 1;
 		}
-		
-		answer = Math.max(answer, count);
 	}
 
 }
