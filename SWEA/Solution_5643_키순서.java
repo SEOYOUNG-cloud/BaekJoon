@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-public class Solution_5643_키순서_박서영 {
+public class Solution_5643_키순서 {
 	
 	static int N,M;
 	static ArrayList[] list;
