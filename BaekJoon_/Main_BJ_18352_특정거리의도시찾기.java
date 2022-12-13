@@ -52,22 +52,20 @@ public class Main_BJ_18352_특정거리의도시찾기 {
 			for(int i=0; i<graph.get(now.idx).size(); i++) {
 				Node next = graph.get(now.idx).get(i);
 				
-				if(dist[next.idx] > now.cost + next.cost) {
-					dist[next.idx] = now.cost + next.cost;
+				if(dist[next.idx] == Integer.MAX_VALUE) { // 방문한 적 없으면
+					dist[next.idx] = dist[now.idx] + 1;
 					pq.offer(new Node(next.idx, dist[next.idx]));
 				}
 			}
 		}
-		ArrayList<Integer> answer = new ArrayList<>();
+		StringBuilder sb = new StringBuilder();
 		for(int i=1; i<=N; i++) {
-			if(dist[i] == K) answer.add(i);
+			if(dist[i] == K) sb.append(i).append('\n');
 		}
-		Collections.sort(answer);
 		
-		if(answer.size() == 0) System.out.println("-1");
+		if(sb.length() == 0) System.out.println("-1");
 		else {
-			for(int i=0; i<answer.size(); i++)
-				System.out.println(answer.get(i));
+			System.out.println(sb.toString());
 		}
 
 	}
