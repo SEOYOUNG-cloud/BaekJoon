@@ -15,12 +15,7 @@ public class Main_BJ_4358_생태학 {
 			if(key == null || key.equals("")) break;
 			n++;
 			
-			if(map.containsKey(key)) {
-				int v = map.get(key);
-				map.put(key, v+1);
-			} else {
-				map.put(key, 1);
-			}
+			map.merge(key, 1, (value, putValue) -> value + 1);
 		}
 		StringBuilder sb = new StringBuilder();
 		ArrayList<String> keys = new ArrayList<>(map.keySet());
