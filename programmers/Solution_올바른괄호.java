@@ -6,7 +6,7 @@ import java.io.*;
 public class Solution_올바른괄호 {
 
     boolean solution(String s) {
-        char[] array = s.toCharArray();
+        char[] array = s.toCharArray(); Stack
 
         int n = 0;
         for(char arr : array){
